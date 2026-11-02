@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MindLeaf Support</title><style>
+:root{--bg:#F5F1E8;--card:#FFFFFF;--ink:#1E232B;--sub:#6B717C;--line:#E7E0D2;--brand:#147652}
+@media (prefers-color-scheme:dark){:root{--bg:#121417;--card:#1E2126;--ink:#F1EEE7;--sub:#9AA0A8;--line:#2E3238;--brand:#5AD3A6}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+main{max-width:680px;margin:0 auto;padding:40px 16px 64px}
+.brand{display:flex;align-items:center;gap:10px;font:700 22px Georgia,serif;margin-bottom:24px}
+.brand span{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#27C08C,#0F6B4B);display:inline-block}
+nav{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+nav button{font:600 14px inherit;font-family:inherit;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+nav button[aria-pressed=true]{background:var(--brand);border-color:var(--brand);color:#fff}
+section{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px}
+.js section{display:none}.js section.active{display:block}
+h1{font:700 30px/1.2 Georgia,serif;margin:0 0 6px}.meta{color:var(--sub);font-size:14px;margin:0 0 20px}
+a{color:var(--brand)}p{margin:0 0 14px}
+</style></head>
+<body><main><div class="brand"><span></span>MindLeaf</div><nav aria-label="Language"><button type="button" data-lang="en">English</button><button type="button" data-lang="ru">Русский</button><button type="button" data-lang="uk">Українська</button><button type="button" data-lang="es">Español</button><button type="button" data-lang="pt-BR">Português</button></nav>
+<section lang="en"><h1>MindLeaf support</h1><p>Questions, bug reports or ideas? Write to us, we usually reply within two business days.</p><p><a href="mailto:serhii.yakovenko1@gmail.com">serhii.yakovenko1@gmail.com</a></p><p>Manage or cancel your subscription: Settings › your name › Subscriptions on your iPhone.</p><p>Restore a purchase: Profile › Go Premium › Restore purchases.</p><p>Refunds are handled by Apple at reportaproblem.apple.com.</p><p><a href="privacy/">Privacy Policy</a></p></section>
+<section lang="ru"><h1>Поддержка MindLeaf</h1><p>Вопросы, ошибки или идеи? Напиши нам, обычно отвечаем в течение двух рабочих дней.</p><p><a href="mailto:serhii.yakovenko1@gmail.com">serhii.yakovenko1@gmail.com</a></p><p>Управлять подпиской или отменить её: Настройки › твоё имя › Подписки на iPhone.</p><p>Восстановить покупку: Профиль › Перейти на Premium › Восстановить покупки.</p><p>Возвратами занимается Apple: reportaproblem.apple.com.</p><p><a href="privacy/">Политика конфиденциальности</a></p></section>
+<section lang="uk"><h1>Підтримка MindLeaf</h1><p>Питання, помилки чи ідеї? Напиши нам, зазвичай відповідаємо протягом двох робочих днів.</p><p><a href="mailto:serhii.yakovenko1@gmail.com">serhii.yakovenko1@gmail.com</a></p><p>Керувати підпискою або скасувати її: Параметри › твоє ім’я › Підписки на iPhone.</p><p>Відновити покупку: Профіль › Перейти на Premium › Відновити покупки.</p><p>Поверненнями коштів займається Apple: reportaproblem.apple.com.</p><p><a href="privacy/">Політика конфіденційності</a></p></section>
+<section lang="es"><h1>Soporte de MindLeaf</h1><p>¿Preguntas, errores o ideas? Escríbenos; solemos responder en dos días hábiles.</p><p><a href="mailto:serhii.yakovenko1@gmail.com">serhii.yakovenko1@gmail.com</a></p><p>Para administrar o cancelar tu suscripción: Configuración › tu nombre › Suscripciones en tu iPhone.</p><p>Para restaurar una compra: Perfil › Hazte Premium › Restaurar compras.</p><p>Los reembolsos los gestiona Apple en reportaproblem.apple.com.</p><p><a href="privacy/">Política de privacidad</a></p></section>
+<section lang="pt-BR"><h1>Suporte do MindLeaf</h1><p>Dúvidas, bugs ou ideias? Escreva para nós; costumamos responder em até dois dias úteis.</p><p><a href="mailto:serhii.yakovenko1@gmail.com">serhii.yakovenko1@gmail.com</a></p><p>Para gerenciar ou cancelar sua assinatura: Ajustes › seu nome › Assinaturas no iPhone.</p><p>Para restaurar uma compra: Perfil › Assinar o Premium › Restaurar compras.</p><p>Reembolsos são feitos pela Apple em reportaproblem.apple.com.</p><p><a href="privacy/">Política de Privacidade</a></p></section>
+</main><script>
+document.documentElement.classList.add('js');
+const langs=[...document.querySelectorAll('section')].map(s=>s.lang);
+const pick=l=>{document.querySelectorAll('section').forEach(s=>s.classList.toggle('active',s.lang===l));
+document.querySelectorAll('nav button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.lang===l));document.documentElement.lang=l;};
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>pick(b.dataset.lang));
+const want=(navigator.languages||[navigator.language||'en']).map(x=>x.toLowerCase());
+let first='en';for(const w of want){const m=langs.find(l=>l.toLowerCase()===w)||langs.find(l=>w.startsWith(l.slice(0,2).toLowerCase()));if(m){first=m;break;}}
+pick(first);
+</script></body></html>
